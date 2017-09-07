@@ -77,7 +77,7 @@ Vagrant.configure("2") do |config|
     # puts(mem/1024^2)
     # puts "Provisioning VM with #{cpus} CPU cores (at #{cpu_exec_cap}%) and #{mem/1024} MB RAM."
 
-    vb.customize ["modifyvm", :id, "--memory", mem/1024]
+    vb.customize ["modifyvm", :id, "--memory", 1024]
     vb.customize ["modifyvm", :id, "--cpus", cpus]
 
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", cpu_exec_cap]
