@@ -15,4 +15,8 @@ services:
         source: ./30-output.conf
         target: /etc/logstash/conf.d/30-output.conf
     environment:
+<<<<<<< HEAD
     - ES_HEAP_SIZE=512m
+=======
+      - ES_HEAP_SIZE=512m
+>>>>>>> 9b6349239ba0298a75725a12c7d6c7e466060acd
