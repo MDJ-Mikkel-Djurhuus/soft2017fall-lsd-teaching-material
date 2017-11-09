@@ -1,9 +1,21 @@
-const log = require('util');
 const express = require('express')
 const app = express()
 
-app.get('/', (req, res) => {
-    log.log("test")
+const log4js = require('log4js');
+const logger = log4js.getLogger();
+log4js.configure({
+  appenders: {
+    console: { type: "console" },
+    logfaces: { type: 'logFaces-HTTP', url: 'http://localhost:9700' }
+  },
+  categories: {
+    default: { appenders: [ 'console', 'logfaces' ], level: 'info' }
+  }
+});
+
+app.get('/:param', (req, res) => {
+	logger.level = 'debug';
+	logger.debug("param: " + req.params.param);
     res.send('Hello World!')
 });
 
